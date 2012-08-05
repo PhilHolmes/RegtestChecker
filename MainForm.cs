@@ -414,11 +414,14 @@ namespace RegtestChecker
 							}
 							if (i < bmpSecond.Width)
 							{
-								colSecond = bmpSecond.GetPixel(i, j);
-								if (colSecond.GetBrightness() < 1)
+								if (j < bmpSecond.Height - cropBottom)
 								{
-									if (i > xMax) xMax = i;
-									if (j > yMax) yMax = j;
+									colSecond = bmpSecond.GetPixel(i, j);
+									if (colSecond.GetBrightness() < 1)
+									{
+										if (i > xMax) xMax = i;
+										if (j > yMax) yMax = j;
+									}
 								}
 							}
 							if (colFirst == colSecond)
